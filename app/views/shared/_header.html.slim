@@ -1,0 +1,25 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      = link_to 'Rankbreeze', root_path, class: 'navbar-brand'
+    #navbar
+      ul.nav.navbar-nav.navbar-right
+        li
+          = link_to 'Home', root_path
+        - if user_signed_in?
+          div.dropdown
+            button.btn.btn-secondary.dropdown-toggle#dropdownMenuButton[href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+              = current_user.full_name
+              b.caret
+            ul.dropdown-menu[aria-labelledby="dropdownMenuButton" role="menu"]
+              li.dropdown-item
+                = link_to 'Investigate Listing', '#'
+              li.dropdown-item
+                = link_to 'Settings', edit_user_registration_path
+              li.dropdown-item
+                = link_to 'Log out', destroy_user_session_path, method: :delete
+        - else
+          li
+            = link_to 'Log In', new_user_session_path
+          li
+            = link_to 'Sign Up', new_user_registration_path

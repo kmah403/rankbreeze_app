@@ -1,0 +1,11 @@
+.center.jumbotron
+  div
+    h1 Welcome! Paste a Airbnb URL to check your listing.
+  .row
+    .col-md-6.offset-3
+      = form_for @listing, url: listings_path do |f|
+        .form-group
+          = f.label :airbnb_url
+          = f.text_field :airbnb_url
+          = f.hidden_field :user_id, value: @listing.user_id
+        = f.submit 'Check', class: 'btn btn-primary'

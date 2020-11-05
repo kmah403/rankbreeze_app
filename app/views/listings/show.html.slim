@@ -1,0 +1,14 @@
+.jumbotron
+  .row
+    .col-md-12
+      label[for='title' style='margin-right: 10px;'] Title:
+      span#title
+        = @listing.title
+    .col-md-12
+      label[for='country' style='margin-right: 10px;'] Country:
+      span#country
+        = @listing.country
+    .col-md-12
+      label[for='city' style='margin-right: 10px;'] City:
+      span#city
+        = @listing.city

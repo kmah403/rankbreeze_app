@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      | RankbreezeApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application', media: 'all'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .container
+      = render partial: 'shared/header'
+      p.notice
+        = notice
+      p.alert
+        = alert
+      = yield
+      / footer
+      /   = render partial: 'shared/footer'
