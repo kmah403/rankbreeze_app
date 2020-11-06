@@ -2,88 +2,36 @@
 
 ## Project scope
 
-Ultimate solution for tours/hotels management.  
-
-- Create, edit, import products
-- Order product
-- SafeCharge payment system
-- Configurable reporting and analytics
-- Suppliers CRM
+A solution for calculating the occupancy rate of a Airbnb listing
 
 ## Runtime environment
 
-The infrasturcture of Dream project consists of the following services:
+The infrasturcture of this project consists of the following services:
 
-- Dream project application
+- Rankbreeze application
 - PostgreSQL database
 - Redis in-memory database
 - Sidekiq background processing
-- AWS S3 for assets
-- Logentries for logging
-- SafeCharge for payments 
-- Mailjet for mails
-
-< Architecture overview C4 model here - provided soon >
-
-## Commands
-
-The list of custom tasks/commands/scripts that could be run within application 
-
-```ruby
-rake app:warmup_orders_cache
-rake app:warmup_products_cache
-rake app:warmup_cache
-```
 
 ## Development environment
 
 Steps to run application locally.  
-Script that automates development setup would be a huge plus!
-
-#### Automated setup
 
 ```
-# rails app
-
-$ bin/setup
-Check PostgreSQL - done 
-Check Redis - done 
-Check Sidekiq - done 
+$ bundle install 
+$ rake db:migrate
+$ rails s
 
 Application is ready!
 ```
 
-#### Manual setup
+## Comments
 
-1. Install ruby/python/js whatever
-1. Install PostgreSQL
-1. Install Redis
-1. Install something specific for your project
-
-#### Automated boot
-
-```
-# just an example
-
-$ bin/local-up
-Starting PostgreSQL...
-Starting Redis...
-Starting Dream app..
-
-Application is up and running!
-
-```
-
-#### Manual boot
-
-1. Run PostgreSQL in background
-1. `$ redis-server`
-1. `$ rails s`
-
-
-## Test environment
-
-How to run tests, linters, etc.
-
-- Linter `$ rubocop`
-- Test suit `$ rspec`
+The application is ready by 60%. As I haven't enough time to implement the occupancy rate calculation.
+I have managed to find a Airbnb API Endpoint where I am fetching the data e.g: title, country, city.
+After research I have understood that occupancy rate is the ratio of time a rental property is 
+occupied to the time it’s made available for rent. 
+The only way to calculate it would be to use Scrapping. As I'm not sure if there is a API endpoint that 
+could provide us with necessary information. 
+So my indent would be to use the Watir gem and chrome driver. The main thing here would be the calendar of the 
+listing with its active/disabled (occupied/unoccupied) days.
